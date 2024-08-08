@@ -1,0 +1,8 @@
+[package]
+name = "bevy_query_macros"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[dev-dependencies]
+bevy_ecs = { version = "0.14", default-features = false }
