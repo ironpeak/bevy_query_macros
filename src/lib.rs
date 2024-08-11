@@ -3,7 +3,19 @@ macro_rules! get {
     ($query:expr, $entity:expr) => {
         match $query.get($entity) {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $entity:expr, $log:ident, $msg:expr) => {
+        match $query.get($entity) {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -13,7 +25,19 @@ macro_rules! get_mut {
     ($query:expr, $entity:expr) => {
         match $query.get_mut($entity) {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $entity:expr, $log:ident, $msg:expr) => {
+        match $query.get_mut($entity) {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -23,7 +47,19 @@ macro_rules! get_or_return {
     ($query:expr, $entity:expr) => {
         match $query.get($entity) {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $entity:expr, $log:ident, $msg:expr) => {
+        match $query.get($entity) {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -33,7 +69,19 @@ macro_rules! get_mut_or_return {
     ($query:expr, $entity:expr) => {
         match $query.get_mut($entity) {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $entity:expr, $log:ident, $msg:expr) => {
+        match $query.get_mut($entity) {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -43,7 +91,19 @@ macro_rules! get_or_continue {
     ($query:expr, $entity:expr) => {
         match $query.get($entity) {
             Ok(data) => data,
-            _ => continue,
+            _ => {
+                continue;
+            }
+        }
+    };
+
+    ($query:expr, $entity:expr, $log:ident, $msg:expr) => {
+        match $query.get($entity) {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                continue;
+            }
         }
     };
 }
@@ -53,7 +113,19 @@ macro_rules! get_mut_or_continue {
     ($query:expr, $entity:expr) => {
         match $query.get_mut($entity) {
             Ok(data) => data,
-            _ => continue,
+            _ => {
+                continue;
+            }
+        }
+    };
+
+    ($query:expr, $entity:expr, $log:ident, $msg:expr) => {
+        match $query.get_mut($entity) {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                continue;
+            }
         }
     };
 }
@@ -63,7 +135,19 @@ macro_rules! get_single {
     ($query:expr) => {
         match $query.get_single() {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $log:ident, $msg:expr) => {
+        match $query.get_single() {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -73,7 +157,19 @@ macro_rules! get_single_mut {
     ($query:expr) => {
         match $query.get_single_mut() {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $log:ident, $msg:expr) => {
+        match $query.get_single_mut() {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -83,7 +179,19 @@ macro_rules! get_single_or_return {
     ($query:expr) => {
         match $query.get_single() {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $log:ident, $msg:expr) => {
+        match $query.get_single() {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -93,7 +201,19 @@ macro_rules! get_single_mut_or_return {
     ($query:expr) => {
         match $query.get_single_mut() {
             Ok(data) => data,
-            _ => return,
+            _ => {
+                return;
+            }
+        }
+    };
+
+    ($query:expr, $log:ident, $msg:expr) => {
+        match $query.get_single_mut() {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                return;
+            }
         }
     };
 }
@@ -103,7 +223,19 @@ macro_rules! get_single_or_continue {
     ($query:expr) => {
         match $query.get_single() {
             Ok(data) => data,
-            _ => continue,
+            _ => {
+                continue;
+            }
+        }
+    };
+
+    ($query:expr, $log:ident, $msg:expr) => {
+        match $query.get_single() {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                continue;
+            }
         }
     };
 }
@@ -113,7 +245,18 @@ macro_rules! get_single_mut_or_continue {
     ($query:expr) => {
         match $query.get_single_mut() {
             Ok(data) => data,
-            _ => continue,
+            _ => {
+                continue;
+            }
+        }
+    };
+    ($query:expr, $log:ident, $msg:expr) => {
+        match $query.get_single_mut() {
+            Ok(data) => data,
+            _ => {
+                bevy::prelude::$log!($msg);
+                continue;
+            }
         }
     };
 }
@@ -122,7 +265,7 @@ macro_rules! get_single_mut_or_continue {
 mod tests {
     use std::sync::{Arc, Mutex};
 
-    use bevy_ecs::prelude::*;
+    use bevy::prelude::*;
 
     use super::*;
 
