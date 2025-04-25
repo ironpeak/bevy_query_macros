@@ -1,7 +1,7 @@
 [package]
 name = "bevy_query_macros"
-version = "0.2.0"
-edition = "2021"
+version = "0.3.0"
+edition = "2024"
 description = "Bevy query macros"
 repository = "https://github.com/ironpeak/bevy_query_macros"
 authors = ["Hrafn Orri Hrafnkelsson <hrafn@vidfjord.is>"]
@@ -11,4 +11,4 @@ keywords = ["bevy", "query", "macros"]
 categories = ["game-development"]
 
 [dependencies]
-bevy = { version = "0.15", default-features = false }
+bevy = { version = "0.16", default-features = false }

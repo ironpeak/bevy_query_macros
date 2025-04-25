@@ -133,7 +133,7 @@ macro_rules! get_mut_or_continue {
 #[macro_export]
 macro_rules! get_single {
     ($query:expr) => {
-        match $query.get_single() {
+        match $query.single() {
             Ok(data) => data,
             _ => {
                 return;
@@ -142,7 +142,7 @@ macro_rules! get_single {
     };
 
     ($query:expr, $log:ident, $msg:expr) => {
-        match $query.get_single() {
+        match $query.single() {
             Ok(data) => data,
             _ => {
                 bevy::prelude::$log!($msg);
@@ -155,7 +155,7 @@ macro_rules! get_single {
 #[macro_export]
 macro_rules! get_single_mut {
     ($query:expr) => {
-        match $query.get_single_mut() {
+        match $query.single_mut() {
             Ok(data) => data,
             _ => {
                 return;
@@ -164,7 +164,7 @@ macro_rules! get_single_mut {
     };
 
     ($query:expr, $log:ident, $msg:expr) => {
-        match $query.get_single_mut() {
+        match $query.single_mut() {
             Ok(data) => data,
             _ => {
                 bevy::prelude::$log!($msg);
@@ -177,7 +177,7 @@ macro_rules! get_single_mut {
 #[macro_export]
 macro_rules! get_single_or_return {
     ($query:expr) => {
-        match $query.get_single() {
+        match $query.single() {
             Ok(data) => data,
             _ => {
                 return;
@@ -186,7 +186,7 @@ macro_rules! get_single_or_return {
     };
 
     ($query:expr, $log:ident, $msg:expr) => {
-        match $query.get_single() {
+        match $query.single() {
             Ok(data) => data,
             _ => {
                 bevy::prelude::$log!($msg);
@@ -199,7 +199,7 @@ macro_rules! get_single_or_return {
 #[macro_export]
 macro_rules! get_single_mut_or_return {
     ($query:expr) => {
-        match $query.get_single_mut() {
+        match $query.single_mut() {
             Ok(data) => data,
             _ => {
                 return;
@@ -208,7 +208,7 @@ macro_rules! get_single_mut_or_return {
     };
 
     ($query:expr, $log:ident, $msg:expr) => {
-        match $query.get_single_mut() {
+        match $query.single_mut() {
             Ok(data) => data,
             _ => {
                 bevy::prelude::$log!($msg);
@@ -221,7 +221,7 @@ macro_rules! get_single_mut_or_return {
 #[macro_export]
 macro_rules! get_single_or_continue {
     ($query:expr) => {
-        match $query.get_single() {
+        match $query.single() {
             Ok(data) => data,
             _ => {
                 continue;
@@ -230,7 +230,7 @@ macro_rules! get_single_or_continue {
     };
 
     ($query:expr, $log:ident, $msg:expr) => {
-        match $query.get_single() {
+        match $query.single() {
             Ok(data) => data,
             _ => {
                 bevy::prelude::$log!($msg);
@@ -243,7 +243,7 @@ macro_rules! get_single_or_continue {
 #[macro_export]
 macro_rules! get_single_mut_or_continue {
     ($query:expr) => {
-        match $query.get_single_mut() {
+        match $query.single_mut() {
             Ok(data) => data,
             _ => {
                 continue;
@@ -251,7 +251,7 @@ macro_rules! get_single_mut_or_continue {
         }
     };
     ($query:expr, $log:ident, $msg:expr) => {
-        match $query.get_single_mut() {
+        match $query.single_mut() {
             Ok(data) => data,
             _ => {
                 bevy::prelude::$log!($msg);
