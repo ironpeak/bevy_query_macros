@@ -277,7 +277,7 @@ mod tests {
         let mut world = World::new();
 
         let system = world.register_system(|query: Query<(Entity, &TestComponent)>| {
-            let _ = get!(query, Entity::from_raw(0));
+            let _ = get!(query, Entity::from_raw_u32(0).unwrap());
             unreachable!("should not be called");
         });
 
@@ -307,7 +307,7 @@ mod tests {
         let mut world = World::new();
 
         let system = world.register_system(|mut query: Query<(Entity, &mut TestComponent)>| {
-            let _ = get_mut!(query, Entity::from_raw(0));
+            let _ = get_mut!(query, Entity::from_raw_u32(0).unwrap());
             unreachable!("should not be called");
         });
 
@@ -338,7 +338,7 @@ mod tests {
         let mut world = World::new();
 
         let system = world.register_system(|query: Query<(Entity, &TestComponent)>| {
-            let _ = get_or_return!(query, Entity::from_raw(0));
+            let _ = get_or_return!(query, Entity::from_raw_u32(0).unwrap());
             unreachable!("should not be called");
         });
 
@@ -368,7 +368,7 @@ mod tests {
         let mut world = World::new();
 
         let system = world.register_system(|mut query: Query<(Entity, &TestComponent)>| {
-            let _ = get_mut_or_return!(query, Entity::from_raw(0));
+            let _ = get_mut_or_return!(query, Entity::from_raw_u32(0).unwrap());
             unreachable!("should not be called");
         });
 
@@ -401,7 +401,7 @@ mod tests {
         let system_ref = early_return.clone();
         let system = world.register_system(move |query: Query<(Entity, &TestComponent)>| {
             for _ in 0..10 {
-                let _ = get_or_continue!(query, Entity::from_raw(0));
+                let _ = get_or_continue!(query, Entity::from_raw_u32(0).unwrap());
                 unreachable!("should not be called");
             }
             *system_ref.lock().unwrap() = false;
@@ -440,7 +440,7 @@ mod tests {
         let system_ref = early_return.clone();
         let system = world.register_system(move |mut query: Query<(Entity, &TestComponent)>| {
             for _ in 0..10 {
-                let _ = get_mut_or_continue!(query, Entity::from_raw(0));
+                let _ = get_mut_or_continue!(query, Entity::from_raw_u32(0).unwrap());
                 unreachable!("should not be called");
             }
             *system_ref.lock().unwrap() = false;
