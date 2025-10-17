@@ -1,6 +1,6 @@
 [package]
 name = "bevy_query_macros"
-version = "0.4.0-rc1"
+version = "0.4.0"
 edition = "2024"
 description = "Bevy query macros"
 repository = "https://github.com/ironpeak/bevy_query_macros"
