@@ -267,8 +267,6 @@ mod tests {
 
     use bevy::prelude::*;
 
-    use super::*;
-
     #[derive(Component)]
     struct TestComponent;
 
